@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Glow |Skin Care Korean</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;/*لتحديد الخط لصفحه كلها*/
+            margin: 0;/*لتظبيط الهوامش الداخليه والسطر اللى تحته للخارجيه*/
+            padding: 0;
+            background-color: #fff9f8;      
+            color: #444;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            display: flex;/*بتسمح بترتيب العناصر*/
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);/*علشان يحطلى ظل خفيف للعنوان*/
+        }
+
+        nav a {/*تنسيق روابط القائمه*/
+            margin: 0 15px;
+            text-decoration: none;/*بيشيل الخط اللى موجود تحت اللينك*/
+            color: #d4a373;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: 400px;
+            display: flex;
+            align-items: center;/* تنظم المحتوى رأسيا*/
+            justify-content: center;
+            text-align: center;
+            background-color: #faedcd; 
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #bc4625d7;
+        }
+        .product-card img {
+    width: 100%;       /* بتخلي الصورة تاخد عرض الكارت بس */
+    height: 250px;     /* بنحدد طول ثابت عشان الصور كلها تبقى سوا واحد */
+    object-fit: contain; /* دي أهم واحدة: بتخلي الصورة تظهر كاملة جوه المقاس من غير ما تتمط */
+    background-color: #f9f9f9; /* لون خلفية خفيف ورا الصورة */
+}
+.add-to-cart {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #bc8a5f; /* بيغمق شوية لما الماوس ييجي عليه */
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><h2>K-Glow ✨</h2></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="admin.html"> Product Management</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1>Skin Care Korean</h1>
+            <p>The Secret To Glass Skin Starts Here</p>
+        </div>
+    </section>
+    <h2 style="text-align: center; margin-top: 50px;">  Trending Korean Products</h2>
+    
+    <div class="products-container">
+        <div class="product-card">
+            <img src="image/61iZUHSBgaL._AC_SX679_ (1).jpg" alt="Product 1">
+            <h3>Oil Cleanser</h3>
+            <p>to remove makeup and impurities    </p>
+            <span class="price">350$</span>
+            <button class="add-to-cart" onclick="addToCart('Advanced Snail Essence')">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="image/61kYGm6bLYL._AC_SX679_.jpg" alt="Product 2">
+            <h3>Moisturizer</h3>
+            <p>Leaves Skin Soft and Glowing    </p>
+            <span class="price">420$.</span>
+            <button class="add-to-cart" onclick="addToCart('Advanced Snail Essence')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+    <img src="image/ezgif.com-gif-maker_5.webp" alt="Product">
+    <h3>Serum</h3>
+    <p>Repairs Skin </p>
+    <span class="price">100$</span>
+    <button class="add-to-cart" onclick="addToCart('Advanced Snail Essence')">Add to Cart</button>
+</div>
+<div class="product-card">
+    <img src="image/Korean-Skincare-Starter-Kit_1024x1024_51d1b3de-fe83-4945-b9d5-4625de82a1ba.webp" alt="Product">
+    <h3>Skin Care Routen</h3>
+    <p>Skin Protection</p>
+    <span class="price"> 800$</span>
+    <button class="add-to-cart" onclick="addToCart('Advanced Snail Essence')">Add to Cart</button>
+</div>
+    </div>
+    <script>
+    function addToCart(productName) {
+        // 1.  علشان المستخدم يدخل اسمه 
+        let userName = prompt(" Please Enter Your Name To Complete The order"     );
+        
+        // لو المستخدم داس Cancel أو ساب الخانة فاضية
+        if (userName == null || userName == "") {
+            alert(" Name Must be entered");
+            return;
+        }
+
+        // 2. دخل رقم التليفون
+        let userPhone = prompt("Please Enter your Phone Number");
+        
+        if (userPhone == null || userPhone == "") {
+            alert("Phone Number Must be entered");
+            return;
+        }
+
+        // 3. الرساله اللى هتظهر بعد ما المستخدم يدخل بيانته لتاكيد الطلب
+        alert("Hello " + userName + "!\n(" + productName + ") has been successfully added to your cart. ✨\nWe will contact you at: " + userPhone);
+    }
+</script>
+
+</body>
+</html>

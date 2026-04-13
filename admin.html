@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>K-Glow | لوحة التحكم</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #fff9f8; padding: 20px; text-align: center; }
+        .admin-box { background: white; padding: 30px; border-radius: 15px; max-width: 600px; margin: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        input { padding: 12px; margin: 10px; width: 80%; border: 1px solid #ddd; border-radius: 8px; }
+        .add-btn { background-color: #d4a373; color: white; border: none; padding: 10px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        table { width: 100%; margin-top: 30px; border-collapse: collapse; background: white; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: center; }
+        th { background-color: #faedcd; }
+        .delete-btn { background-color: #ffadad; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <nav style="margin-bottom: 20px;">
+        <a href="index.html" style="text-decoration: none; color: #d4a373; font-weight: bold;">←   Home</a>
+    </nav>
+
+    <div class="admin-box">
+        <h2> Product</h2>
+        <input type="text" id="pName" placeholder="product">
+        <input type="text" id="pPrice" placeholder="$">
+        <button class="add-btn" onclick="addNewProduct()">Add Product </button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th> Name Product</th>
+                    <th>price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="productsList">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        function addNewProduct() {
+            // 1. بناخد الكلام اللي مكتوب في الخانات
+            let name = document.getElementById('pName').value;
+            let price = document.getElementById('pPrice').value;
+            let table = document.getElementById('productsList');
+
+            if (name === "" || price === "") {
+                alert("pleace Enter Your Data");
+                return;
+            }
+
+            // 2. بنعمل سطر جديد في الجدول (Create)
+            let row = table.insertRow();
+            row.innerHTML = `
+                <td>${name}</td>
+                <td>${price}</td>
+                <td><button class="delete-btn" onclick="removeProduct(this)">حذف</button></td>
+            `;
+
+            // 3. بنفضي الخانات بعد الإضافة
+            document.getElementById('pName').value = "";
+            document.getElementById('pPrice').value = "";
+        }
+
+        function removeProduct(button) {
+            // 4. بنمسح السطر اللي ضغطنا على زرار الحذف بتاعه (Delete)
+            let row = button.parentElement.parentElement;
+            row.remove();
+        }
+    </script>
+</body>
+</html>
